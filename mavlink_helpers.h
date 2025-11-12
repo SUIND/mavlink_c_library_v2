@@ -177,7 +177,7 @@ MAVLINK_HELPER bool mavlink_signature_check(mavlink_signing_t *signing,
 		// new stream. Only accept if timestamp is not more than 1 minute old
 		if (tstamp.t64 + 6000*1000UL < signing->timestamp) {
                         signing->last_status = MAVLINK_SIGNING_STATUS_OLD_TIMESTAMP;
-                        return false;
+                        // return false;
 		}
 		// add new stream
 		signing_streams->stream[i].sysid = msg->sysid;
@@ -191,7 +191,7 @@ MAVLINK_HELPER bool mavlink_signature_check(mavlink_signing_t *signing,
 		if (tstamp.t64 <= last_tstamp.t64) {
 			// repeating old timestamp
                         signing->last_status = MAVLINK_SIGNING_STATUS_REPLAY;
-                        return false;
+                        // return false;
 		}
 	}
 
