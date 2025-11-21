@@ -1,5 +1,5 @@
 /** @file
- *  @brief MAVLink comm protocol built from ualberta.xml
+ *  @brief MAVLink comm protocol built from suind.xml
  *  @see http://mavlink.org
  */
 #pragma once
