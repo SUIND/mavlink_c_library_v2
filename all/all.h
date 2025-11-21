@@ -64,6 +64,7 @@ extern "C" {
 #include "../AVSSUAS/AVSSUAS.h"
 #include "../cubepilot/cubepilot.h"
 #include "../csAirLink/csAirLink.h"
+#include "../suind/suind.h"
 
 
 #if MAVLINK_ALL_XML_HASH == MAVLINK_PRIMARY_XML_HASH
