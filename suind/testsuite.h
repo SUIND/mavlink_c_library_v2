@@ -37,7 +37,7 @@ static void mavlink_test_suind_mission_data(uint8_t system_id, uint8_t component
         uint8_t buffer[MAVLINK_MAX_PACKET_LEN];
         uint16_t i;
     mavlink_suind_mission_data_t packet_in = {
-        93372036854775807ULL,179.0,235.0,963498712,213.0,241.0,269.0,125,192,"QRSTUVWXYZABCDEFGHIJKLMN","PQRSTUVWXYZABCDEFGHIJKLM","OPQRSTUVWXYZABCDEFGHIJKL"
+        93372036854775807ULL,179.0,235.0,963498712,213.0,241.0,269.0,125,192,"QRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLM","OPQRSTUVW","YZABCDEFGHIJKL"
     };
     mavlink_suind_mission_data_t packet1, packet2;
         memset(&packet1, 0, sizeof(packet1));
@@ -51,9 +51,9 @@ static void mavlink_test_suind_mission_data(uint8_t system_id, uint8_t component
         packet1.target_system = packet_in.target_system;
         packet1.target_component = packet_in.target_component;
         
-        mav_array_memcpy(packet1.signature, packet_in.signature, sizeof(char)*25);
-        mav_array_memcpy(packet1.serial_number, packet_in.serial_number, sizeof(char)*25);
-        mav_array_memcpy(packet1.signature_algorithm, packet_in.signature_algorithm, sizeof(char)*25);
+        mav_array_memcpy(packet1.signature, packet_in.signature, sizeof(char)*128);
+        mav_array_memcpy(packet1.serial_number, packet_in.serial_number, sizeof(char)*10);
+        mav_array_memcpy(packet1.signature_algorithm, packet_in.signature_algorithm, sizeof(char)*15);
         
 #ifdef MAVLINK_STATUS_FLAG_OUT_MAVLINK1
         if (status->flags & MAVLINK_STATUS_FLAG_OUT_MAVLINK1) {

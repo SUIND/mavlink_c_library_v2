@@ -14,22 +14,22 @@ typedef struct __mavlink_suind_mission_data_t {
  float spray_area; /*< [acres] Spray Area.*/
  uint8_t target_system; /*<  System ID.*/
  uint8_t target_component; /*<  Component ID.*/
- char signature[25]; /*<  Signature.*/
- char serial_number[25]; /*<  Serial No.*/
- char signature_algorithm[25]; /*<  Signature Algorithm.*/
+ char signature[128]; /*<  Signature.*/
+ char serial_number[10]; /*<  Serial No.*/
+ char signature_algorithm[15]; /*<  Signature Algorithm.*/
 } mavlink_suind_mission_data_t;
 
-#define MAVLINK_MSG_ID_SUIND_MISSION_DATA_LEN 117
-#define MAVLINK_MSG_ID_SUIND_MISSION_DATA_MIN_LEN 117
-#define MAVLINK_MSG_ID_70000_LEN 117
-#define MAVLINK_MSG_ID_70000_MIN_LEN 117
+#define MAVLINK_MSG_ID_SUIND_MISSION_DATA_LEN 195
+#define MAVLINK_MSG_ID_SUIND_MISSION_DATA_MIN_LEN 195
+#define MAVLINK_MSG_ID_70000_LEN 195
+#define MAVLINK_MSG_ID_70000_MIN_LEN 195
 
-#define MAVLINK_MSG_ID_SUIND_MISSION_DATA_CRC 192
-#define MAVLINK_MSG_ID_70000_CRC 192
+#define MAVLINK_MSG_ID_SUIND_MISSION_DATA_CRC 238
+#define MAVLINK_MSG_ID_70000_CRC 238
 
-#define MAVLINK_MSG_SUIND_MISSION_DATA_FIELD_SIGNATURE_LEN 25
-#define MAVLINK_MSG_SUIND_MISSION_DATA_FIELD_SERIAL_NUMBER_LEN 25
-#define MAVLINK_MSG_SUIND_MISSION_DATA_FIELD_SIGNATURE_ALGORITHM_LEN 25
+#define MAVLINK_MSG_SUIND_MISSION_DATA_FIELD_SIGNATURE_LEN 128
+#define MAVLINK_MSG_SUIND_MISSION_DATA_FIELD_SERIAL_NUMBER_LEN 10
+#define MAVLINK_MSG_SUIND_MISSION_DATA_FIELD_SIGNATURE_ALGORITHM_LEN 15
 
 #if MAVLINK_COMMAND_24BIT
 #define MAVLINK_MESSAGE_INFO_SUIND_MISSION_DATA { \
@@ -39,15 +39,15 @@ typedef struct __mavlink_suind_mission_data_t {
     {  { "target_system", NULL, MAVLINK_TYPE_UINT8_T, 0, 40, offsetof(mavlink_suind_mission_data_t, target_system) }, \
          { "target_component", NULL, MAVLINK_TYPE_UINT8_T, 0, 41, offsetof(mavlink_suind_mission_data_t, target_component) }, \
          { "mission_id", NULL, MAVLINK_TYPE_UINT32_T, 0, 24, offsetof(mavlink_suind_mission_data_t, mission_id) }, \
-         { "signature", NULL, MAVLINK_TYPE_CHAR, 25, 42, offsetof(mavlink_suind_mission_data_t, signature) }, \
-         { "serial_number", NULL, MAVLINK_TYPE_CHAR, 25, 67, offsetof(mavlink_suind_mission_data_t, serial_number) }, \
+         { "signature", NULL, MAVLINK_TYPE_CHAR, 128, 42, offsetof(mavlink_suind_mission_data_t, signature) }, \
+         { "serial_number", NULL, MAVLINK_TYPE_CHAR, 10, 170, offsetof(mavlink_suind_mission_data_t, serial_number) }, \
          { "mission_duration", NULL, MAVLINK_TYPE_FLOAT, 0, 28, offsetof(mavlink_suind_mission_data_t, mission_duration) }, \
          { "spray_volume", NULL, MAVLINK_TYPE_FLOAT, 0, 32, offsetof(mavlink_suind_mission_data_t, spray_volume) }, \
          { "spray_area", NULL, MAVLINK_TYPE_FLOAT, 0, 36, offsetof(mavlink_suind_mission_data_t, spray_area) }, \
          { "mission_time", NULL, MAVLINK_TYPE_UINT64_T, 0, 0, offsetof(mavlink_suind_mission_data_t, mission_time) }, \
          { "latitude", NULL, MAVLINK_TYPE_DOUBLE, 0, 8, offsetof(mavlink_suind_mission_data_t, latitude) }, \
          { "longitude", NULL, MAVLINK_TYPE_DOUBLE, 0, 16, offsetof(mavlink_suind_mission_data_t, longitude) }, \
-         { "signature_algorithm", NULL, MAVLINK_TYPE_CHAR, 25, 92, offsetof(mavlink_suind_mission_data_t, signature_algorithm) }, \
+         { "signature_algorithm", NULL, MAVLINK_TYPE_CHAR, 15, 180, offsetof(mavlink_suind_mission_data_t, signature_algorithm) }, \
          } \
 }
 #else
@@ -57,15 +57,15 @@ typedef struct __mavlink_suind_mission_data_t {
     {  { "target_system", NULL, MAVLINK_TYPE_UINT8_T, 0, 40, offsetof(mavlink_suind_mission_data_t, target_system) }, \
          { "target_component", NULL, MAVLINK_TYPE_UINT8_T, 0, 41, offsetof(mavlink_suind_mission_data_t, target_component) }, \
          { "mission_id", NULL, MAVLINK_TYPE_UINT32_T, 0, 24, offsetof(mavlink_suind_mission_data_t, mission_id) }, \
-         { "signature", NULL, MAVLINK_TYPE_CHAR, 25, 42, offsetof(mavlink_suind_mission_data_t, signature) }, \
-         { "serial_number", NULL, MAVLINK_TYPE_CHAR, 25, 67, offsetof(mavlink_suind_mission_data_t, serial_number) }, \
+         { "signature", NULL, MAVLINK_TYPE_CHAR, 128, 42, offsetof(mavlink_suind_mission_data_t, signature) }, \
+         { "serial_number", NULL, MAVLINK_TYPE_CHAR, 10, 170, offsetof(mavlink_suind_mission_data_t, serial_number) }, \
          { "mission_duration", NULL, MAVLINK_TYPE_FLOAT, 0, 28, offsetof(mavlink_suind_mission_data_t, mission_duration) }, \
          { "spray_volume", NULL, MAVLINK_TYPE_FLOAT, 0, 32, offsetof(mavlink_suind_mission_data_t, spray_volume) }, \
          { "spray_area", NULL, MAVLINK_TYPE_FLOAT, 0, 36, offsetof(mavlink_suind_mission_data_t, spray_area) }, \
          { "mission_time", NULL, MAVLINK_TYPE_UINT64_T, 0, 0, offsetof(mavlink_suind_mission_data_t, mission_time) }, \
          { "latitude", NULL, MAVLINK_TYPE_DOUBLE, 0, 8, offsetof(mavlink_suind_mission_data_t, latitude) }, \
          { "longitude", NULL, MAVLINK_TYPE_DOUBLE, 0, 16, offsetof(mavlink_suind_mission_data_t, longitude) }, \
-         { "signature_algorithm", NULL, MAVLINK_TYPE_CHAR, 25, 92, offsetof(mavlink_suind_mission_data_t, signature_algorithm) }, \
+         { "signature_algorithm", NULL, MAVLINK_TYPE_CHAR, 15, 180, offsetof(mavlink_suind_mission_data_t, signature_algorithm) }, \
          } \
 }
 #endif
@@ -104,9 +104,9 @@ static inline uint16_t mavlink_msg_suind_mission_data_pack(uint8_t system_id, ui
     _mav_put_float(buf, 36, spray_area);
     _mav_put_uint8_t(buf, 40, target_system);
     _mav_put_uint8_t(buf, 41, target_component);
-    _mav_put_char_array(buf, 42, signature, 25);
-    _mav_put_char_array(buf, 67, serial_number, 25);
-    _mav_put_char_array(buf, 92, signature_algorithm, 25);
+    _mav_put_char_array(buf, 42, signature, 128);
+    _mav_put_char_array(buf, 170, serial_number, 10);
+    _mav_put_char_array(buf, 180, signature_algorithm, 15);
         memcpy(_MAV_PAYLOAD_NON_CONST(msg), buf, MAVLINK_MSG_ID_SUIND_MISSION_DATA_LEN);
 #else
     mavlink_suind_mission_data_t packet;
@@ -119,9 +119,9 @@ static inline uint16_t mavlink_msg_suind_mission_data_pack(uint8_t system_id, ui
     packet.spray_area = spray_area;
     packet.target_system = target_system;
     packet.target_component = target_component;
-    mav_array_memcpy(packet.signature, signature, sizeof(char)*25);
-    mav_array_memcpy(packet.serial_number, serial_number, sizeof(char)*25);
-    mav_array_memcpy(packet.signature_algorithm, signature_algorithm, sizeof(char)*25);
+    mav_array_memcpy(packet.signature, signature, sizeof(char)*128);
+    mav_array_memcpy(packet.serial_number, serial_number, sizeof(char)*10);
+    mav_array_memcpy(packet.signature_algorithm, signature_algorithm, sizeof(char)*15);
         memcpy(_MAV_PAYLOAD_NON_CONST(msg), &packet, MAVLINK_MSG_ID_SUIND_MISSION_DATA_LEN);
 #endif
 
@@ -164,9 +164,9 @@ static inline uint16_t mavlink_msg_suind_mission_data_pack_status(uint8_t system
     _mav_put_float(buf, 36, spray_area);
     _mav_put_uint8_t(buf, 40, target_system);
     _mav_put_uint8_t(buf, 41, target_component);
-    _mav_put_char_array(buf, 42, signature, 25);
-    _mav_put_char_array(buf, 67, serial_number, 25);
-    _mav_put_char_array(buf, 92, signature_algorithm, 25);
+    _mav_put_char_array(buf, 42, signature, 128);
+    _mav_put_char_array(buf, 170, serial_number, 10);
+    _mav_put_char_array(buf, 180, signature_algorithm, 15);
         memcpy(_MAV_PAYLOAD_NON_CONST(msg), buf, MAVLINK_MSG_ID_SUIND_MISSION_DATA_LEN);
 #else
     mavlink_suind_mission_data_t packet;
@@ -179,9 +179,9 @@ static inline uint16_t mavlink_msg_suind_mission_data_pack_status(uint8_t system
     packet.spray_area = spray_area;
     packet.target_system = target_system;
     packet.target_component = target_component;
-    mav_array_memcpy(packet.signature, signature, sizeof(char)*25);
-    mav_array_memcpy(packet.serial_number, serial_number, sizeof(char)*25);
-    mav_array_memcpy(packet.signature_algorithm, signature_algorithm, sizeof(char)*25);
+    mav_array_memcpy(packet.signature, signature, sizeof(char)*128);
+    mav_array_memcpy(packet.serial_number, serial_number, sizeof(char)*10);
+    mav_array_memcpy(packet.signature_algorithm, signature_algorithm, sizeof(char)*15);
         memcpy(_MAV_PAYLOAD_NON_CONST(msg), &packet, MAVLINK_MSG_ID_SUIND_MISSION_DATA_LEN);
 #endif
 
@@ -228,9 +228,9 @@ static inline uint16_t mavlink_msg_suind_mission_data_pack_chan(uint8_t system_i
     _mav_put_float(buf, 36, spray_area);
     _mav_put_uint8_t(buf, 40, target_system);
     _mav_put_uint8_t(buf, 41, target_component);
-    _mav_put_char_array(buf, 42, signature, 25);
-    _mav_put_char_array(buf, 67, serial_number, 25);
-    _mav_put_char_array(buf, 92, signature_algorithm, 25);
+    _mav_put_char_array(buf, 42, signature, 128);
+    _mav_put_char_array(buf, 170, serial_number, 10);
+    _mav_put_char_array(buf, 180, signature_algorithm, 15);
         memcpy(_MAV_PAYLOAD_NON_CONST(msg), buf, MAVLINK_MSG_ID_SUIND_MISSION_DATA_LEN);
 #else
     mavlink_suind_mission_data_t packet;
@@ -243,9 +243,9 @@ static inline uint16_t mavlink_msg_suind_mission_data_pack_chan(uint8_t system_i
     packet.spray_area = spray_area;
     packet.target_system = target_system;
     packet.target_component = target_component;
-    mav_array_memcpy(packet.signature, signature, sizeof(char)*25);
-    mav_array_memcpy(packet.serial_number, serial_number, sizeof(char)*25);
-    mav_array_memcpy(packet.signature_algorithm, signature_algorithm, sizeof(char)*25);
+    mav_array_memcpy(packet.signature, signature, sizeof(char)*128);
+    mav_array_memcpy(packet.serial_number, serial_number, sizeof(char)*10);
+    mav_array_memcpy(packet.signature_algorithm, signature_algorithm, sizeof(char)*15);
         memcpy(_MAV_PAYLOAD_NON_CONST(msg), &packet, MAVLINK_MSG_ID_SUIND_MISSION_DATA_LEN);
 #endif
 
@@ -326,9 +326,9 @@ static inline void mavlink_msg_suind_mission_data_send(mavlink_channel_t chan, u
     _mav_put_float(buf, 36, spray_area);
     _mav_put_uint8_t(buf, 40, target_system);
     _mav_put_uint8_t(buf, 41, target_component);
-    _mav_put_char_array(buf, 42, signature, 25);
-    _mav_put_char_array(buf, 67, serial_number, 25);
-    _mav_put_char_array(buf, 92, signature_algorithm, 25);
+    _mav_put_char_array(buf, 42, signature, 128);
+    _mav_put_char_array(buf, 170, serial_number, 10);
+    _mav_put_char_array(buf, 180, signature_algorithm, 15);
     _mav_finalize_message_chan_send(chan, MAVLINK_MSG_ID_SUIND_MISSION_DATA, buf, MAVLINK_MSG_ID_SUIND_MISSION_DATA_MIN_LEN, MAVLINK_MSG_ID_SUIND_MISSION_DATA_LEN, MAVLINK_MSG_ID_SUIND_MISSION_DATA_CRC);
 #else
     mavlink_suind_mission_data_t packet;
@@ -341,9 +341,9 @@ static inline void mavlink_msg_suind_mission_data_send(mavlink_channel_t chan, u
     packet.spray_area = spray_area;
     packet.target_system = target_system;
     packet.target_component = target_component;
-    mav_array_memcpy(packet.signature, signature, sizeof(char)*25);
-    mav_array_memcpy(packet.serial_number, serial_number, sizeof(char)*25);
-    mav_array_memcpy(packet.signature_algorithm, signature_algorithm, sizeof(char)*25);
+    mav_array_memcpy(packet.signature, signature, sizeof(char)*128);
+    mav_array_memcpy(packet.serial_number, serial_number, sizeof(char)*10);
+    mav_array_memcpy(packet.signature_algorithm, signature_algorithm, sizeof(char)*15);
     _mav_finalize_message_chan_send(chan, MAVLINK_MSG_ID_SUIND_MISSION_DATA, (const char *)&packet, MAVLINK_MSG_ID_SUIND_MISSION_DATA_MIN_LEN, MAVLINK_MSG_ID_SUIND_MISSION_DATA_LEN, MAVLINK_MSG_ID_SUIND_MISSION_DATA_CRC);
 #endif
 }
@@ -383,9 +383,9 @@ static inline void mavlink_msg_suind_mission_data_send_buf(mavlink_message_t *ms
     _mav_put_float(buf, 36, spray_area);
     _mav_put_uint8_t(buf, 40, target_system);
     _mav_put_uint8_t(buf, 41, target_component);
-    _mav_put_char_array(buf, 42, signature, 25);
-    _mav_put_char_array(buf, 67, serial_number, 25);
-    _mav_put_char_array(buf, 92, signature_algorithm, 25);
+    _mav_put_char_array(buf, 42, signature, 128);
+    _mav_put_char_array(buf, 170, serial_number, 10);
+    _mav_put_char_array(buf, 180, signature_algorithm, 15);
     _mav_finalize_message_chan_send(chan, MAVLINK_MSG_ID_SUIND_MISSION_DATA, buf, MAVLINK_MSG_ID_SUIND_MISSION_DATA_MIN_LEN, MAVLINK_MSG_ID_SUIND_MISSION_DATA_LEN, MAVLINK_MSG_ID_SUIND_MISSION_DATA_CRC);
 #else
     mavlink_suind_mission_data_t *packet = (mavlink_suind_mission_data_t *)msgbuf;
@@ -398,9 +398,9 @@ static inline void mavlink_msg_suind_mission_data_send_buf(mavlink_message_t *ms
     packet->spray_area = spray_area;
     packet->target_system = target_system;
     packet->target_component = target_component;
-    mav_array_memcpy(packet->signature, signature, sizeof(char)*25);
-    mav_array_memcpy(packet->serial_number, serial_number, sizeof(char)*25);
-    mav_array_memcpy(packet->signature_algorithm, signature_algorithm, sizeof(char)*25);
+    mav_array_memcpy(packet->signature, signature, sizeof(char)*128);
+    mav_array_memcpy(packet->serial_number, serial_number, sizeof(char)*10);
+    mav_array_memcpy(packet->signature_algorithm, signature_algorithm, sizeof(char)*15);
     _mav_finalize_message_chan_send(chan, MAVLINK_MSG_ID_SUIND_MISSION_DATA, (const char *)packet, MAVLINK_MSG_ID_SUIND_MISSION_DATA_MIN_LEN, MAVLINK_MSG_ID_SUIND_MISSION_DATA_LEN, MAVLINK_MSG_ID_SUIND_MISSION_DATA_CRC);
 #endif
 }
@@ -448,7 +448,7 @@ static inline uint32_t mavlink_msg_suind_mission_data_get_mission_id(const mavli
  */
 static inline uint16_t mavlink_msg_suind_mission_data_get_signature(const mavlink_message_t* msg, char *signature)
 {
-    return _MAV_RETURN_char_array(msg, signature, 25,  42);
+    return _MAV_RETURN_char_array(msg, signature, 128,  42);
 }
 
 /**
@@ -458,7 +458,7 @@ static inline uint16_t mavlink_msg_suind_mission_data_get_signature(const mavlin
  */
 static inline uint16_t mavlink_msg_suind_mission_data_get_serial_number(const mavlink_message_t* msg, char *serial_number)
 {
-    return _MAV_RETURN_char_array(msg, serial_number, 25,  67);
+    return _MAV_RETURN_char_array(msg, serial_number, 10,  170);
 }
 
 /**
@@ -528,7 +528,7 @@ static inline double mavlink_msg_suind_mission_data_get_longitude(const mavlink_
  */
 static inline uint16_t mavlink_msg_suind_mission_data_get_signature_algorithm(const mavlink_message_t* msg, char *signature_algorithm)
 {
-    return _MAV_RETURN_char_array(msg, signature_algorithm, 25,  92);
+    return _MAV_RETURN_char_array(msg, signature_algorithm, 15,  180);
 }
 
 /**
