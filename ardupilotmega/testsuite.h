@@ -35,7 +35,7 @@ static void mavlink_test_all(uint8_t system_id, uint8_t component_id, mavlink_me
 #include "../icarous/testsuite.h"
 #include "../cubepilot/testsuite.h"
 #include "../csAirLink/testsuite.h"
-
+#include "../suind/testsuite.h"
 
 static void mavlink_test_sensor_offsets(uint8_t system_id, uint8_t component_id, mavlink_message_t *last_msg)
 {
